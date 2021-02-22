@@ -1,0 +1,1 @@
+# GlobalKeyboardHook-iniFileManage
