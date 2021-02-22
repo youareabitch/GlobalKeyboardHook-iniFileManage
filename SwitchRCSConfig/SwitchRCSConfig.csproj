@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>E23587D8DEB8B72D1BEC2CB57E9E8BBCE2B8FA75</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>3B70503289D6D80F2653140C2FE29E6CCDA6FDC3</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>SwitchRCSConfig_TemporaryKey.pfx</ManifestKeyFile>

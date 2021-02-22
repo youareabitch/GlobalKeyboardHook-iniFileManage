@@ -36,7 +36,7 @@ namespace SwitchRCSConfig
         //要用的變數和物件先宣告在這裡
         GlobalKeyboardHook gHook;
         int kv;//將keyValue轉成整數用的變數
-        bool ctrl, alt, shift;//按下功能鍵時就改為true
+        //bool ctrl, alt, shift;//按下功能鍵時就改為true
         string configName = "Default";
 
         //config Manager宣告
@@ -75,7 +75,7 @@ namespace SwitchRCSConfig
         {
             kv = e.KeyValue;//把按下的按鍵號碼轉成整數存在kv中
 
-            label1.Text = $"目前按下的按鍵號碼：{kv.ToString()}";
+            label1.Text = $"目前按下的按鍵號碼：{kv}";
 
             switch (kv)
             {
@@ -108,68 +108,6 @@ namespace SwitchRCSConfig
 
                         break;
                     }
-                case 97://按下九宮格1
-                    {
-                        configName = "Twitch";
-                        lblCurrentWeapon.Text = "主武器";
-                        SwitchHeroConfig(configName);
-                        break;
-                    }
-                case 98://按下九宮格2
-                    {
-                        configName = "Hibana";
-                        lblCurrentWeapon.Text = "主武器";
-                        SwitchHeroConfig(configName);
-                        break;
-                    }
-                case 99://按下九宮格3
-                    {
-                        configName = "Jaeger";
-                        lblCurrentWeapon.Text = "主武器";
-                        SwitchHeroConfig(configName);
-                        break;
-                    }
-                case 100://按下九宮格4
-                    {
-                        configName = "Echo";
-                        lblCurrentWeapon.Text = "主武器";
-                        SwitchHeroConfig(configName);
-                        break;
-                    }
-                case 101://按下九宮格5
-                    {
-                        configName = "Frost";
-                        SwitchHeroConfig(configName);
-                        break;
-                    }
-                case 102://按下九宮格6
-                    {
-                        configName = "Pulse";
-                        lblCurrentWeapon.Text = "主武器";
-                        SwitchHeroConfig(configName);
-                        break;
-                    }
-                case 103://按下九宮格7
-                    {
-                        configName = "Sledge";
-                        lblCurrentWeapon.Text = "主武器";
-                        SwitchHeroConfig(configName);
-                        break;
-                    }
-                case 104://按下九宮格8
-                    {
-                        configName = "Vigil";
-                        lblCurrentWeapon.Text = "主武器";
-                        SwitchHeroConfig(configName);
-                        break;
-                    }
-                case 105://按下九宮格9
-                    {
-                        configName = "Maverick";
-                        lblCurrentWeapon.Text = "主武器";
-                        SwitchHeroConfig(configName);
-                        break;
-                    }
             }
         }
 
@@ -187,15 +125,22 @@ namespace SwitchRCSConfig
                 IniManager usedConfig;
 
                 if (Convert.ToBoolean(loadedConfig.ReadIniFile("type", "isMain", "true")))
+                {
                     usedConfig = new IniManager(ttbSourcePath.Text + "\\Default\\config1.ini");
+                    lblMainWeaponText.Text = item.Substring(item.LastIndexOf('\\') + 1).Replace(".ini", "");
+                }
                 else
+                {
                     usedConfig = new IniManager(ttbSourcePath.Text + "\\Default\\config2.ini");
+                    lblSecWeaponText.Text = item.Substring(item.LastIndexOf('\\') + 1).Replace(".ini", "");
+                }
 
                 usedConfig.WriteIniFile("first", "y", loadedConfig.ReadIniFile("config", "y", "0"));
                 usedConfig.WriteIniFile("first", "rate", loadedConfig.ReadIniFile("config", "rate1", "0"));
                 usedConfig.WriteIniFile("second", "y", 0);
                 usedConfig.WriteIniFile("second", "rate", loadedConfig.ReadIniFile("config", "rate2", "0"));
             }
+            SwitchHeroConfig("Default");
         }
 
         private void CopyFile(string sourcePath, string destPath, string fileName)
@@ -220,6 +165,7 @@ namespace SwitchRCSConfig
         {
             lblCurrentLoadedConfig.Text = lblCurrentLoadedConfig.Text.Substring(0, lblCurrentLoadedConfig.Text.IndexOf("：") + 1);
             lblCurrentLoadedConfig.Text += configName;
+            lblCurrentWeapon.Text = "主武器";
             string fileName = "config1.ini";
             CopyFile(ttbSourcePath.Text + $"\\{configName}", ttbDestPath.Text, fileName);
         }

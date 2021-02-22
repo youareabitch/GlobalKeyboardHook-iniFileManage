@@ -41,6 +41,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnLoadWeaponConfig = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.lblMainWeaponTitle = new System.Windows.Forms.Label();
+            this.lblSecWeaponTitle = new System.Windows.Forms.Label();
+            this.lblMainWeaponText = new System.Windows.Forms.Label();
+            this.lblSecWeaponText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -139,7 +143,7 @@
             // 
             // btnLoadWeaponConfig
             // 
-            this.btnLoadWeaponConfig.Location = new System.Drawing.Point(115, 152);
+            this.btnLoadWeaponConfig.Location = new System.Drawing.Point(319, 152);
             this.btnLoadWeaponConfig.Name = "btnLoadWeaponConfig";
             this.btnLoadWeaponConfig.Size = new System.Drawing.Size(128, 23);
             this.btnLoadWeaponConfig.TabIndex = 11;
@@ -153,11 +157,49 @@
             this.openFileDialog1.Multiselect = true;
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // lblMainWeaponTitle
+            // 
+            this.lblMainWeaponTitle.AutoSize = true;
+            this.lblMainWeaponTitle.Location = new System.Drawing.Point(453, 157);
+            this.lblMainWeaponTitle.Name = "lblMainWeaponTitle";
+            this.lblMainWeaponTitle.Size = new System.Drawing.Size(29, 12);
+            this.lblMainWeaponTitle.TabIndex = 12;
+            this.lblMainWeaponTitle.Text = "主：";
+            // 
+            // lblSecWeaponTitle
+            // 
+            this.lblSecWeaponTitle.AutoSize = true;
+            this.lblSecWeaponTitle.Location = new System.Drawing.Point(609, 157);
+            this.lblSecWeaponTitle.Name = "lblSecWeaponTitle";
+            this.lblSecWeaponTitle.Size = new System.Drawing.Size(29, 12);
+            this.lblSecWeaponTitle.TabIndex = 13;
+            this.lblSecWeaponTitle.Text = "副：";
+            // 
+            // lblMainWeaponText
+            // 
+            this.lblMainWeaponText.AutoSize = true;
+            this.lblMainWeaponText.Location = new System.Drawing.Point(473, 157);
+            this.lblMainWeaponText.Name = "lblMainWeaponText";
+            this.lblMainWeaponText.Size = new System.Drawing.Size(0, 12);
+            this.lblMainWeaponText.TabIndex = 14;
+            // 
+            // lblSecWeaponText
+            // 
+            this.lblSecWeaponText.AutoSize = true;
+            this.lblSecWeaponText.Location = new System.Drawing.Point(633, 157);
+            this.lblSecWeaponText.Name = "lblSecWeaponText";
+            this.lblSecWeaponText.Size = new System.Drawing.Size(0, 12);
+            this.lblSecWeaponText.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 189);
+            this.Controls.Add(this.lblSecWeaponText);
+            this.Controls.Add(this.lblMainWeaponText);
+            this.Controls.Add(this.lblSecWeaponTitle);
+            this.Controls.Add(this.lblMainWeaponTitle);
             this.Controls.Add(this.btnLoadWeaponConfig);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ttbWeaponConfigPath);
@@ -193,6 +235,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnLoadWeaponConfig;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label lblMainWeaponTitle;
+        private System.Windows.Forms.Label lblSecWeaponTitle;
+        private System.Windows.Forms.Label lblMainWeaponText;
+        private System.Windows.Forms.Label lblSecWeaponText;
     }
 }
 
