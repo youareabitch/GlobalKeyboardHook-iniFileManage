@@ -124,7 +124,11 @@ namespace SwitchRCSConfig
                 IniManager loadedConfig = new IniManager(item);
                 IniManager usedConfig;
 
-                if (Convert.ToBoolean(loadedConfig.ReadIniFile("type", "isMain", "true")))
+                if (Convert.ToBoolean(loadedConfig.ReadIniFile("type", "forFinka", "false")))
+                {
+                    usedConfig = new IniManager(ttbSourcePath.Text + "\\Default\\config3.ini");
+                }
+                else if (Convert.ToBoolean(loadedConfig.ReadIniFile("type", "isMain", "true")))
                 {
                     usedConfig = new IniManager(ttbSourcePath.Text + "\\Default\\config1.ini");
                     lblMainWeaponText.Text = item.Substring(item.LastIndexOf('\\') + 1).Replace(".ini", "");
@@ -139,6 +143,7 @@ namespace SwitchRCSConfig
                 usedConfig.WriteIniFile("first", "rate", loadedConfig.ReadIniFile("config", "rate1", "0"));
                 usedConfig.WriteIniFile("second", "y", 0);
                 usedConfig.WriteIniFile("second", "rate", loadedConfig.ReadIniFile("config", "rate2", "0"));
+                usedConfig.WriteIniFile("GLOBALSETTINGS", "pressleftandright", loadedConfig.ReadIniFile("config", "pressleftandright", "1"));
             }
             SwitchHeroConfig("Default");
         }
@@ -158,6 +163,7 @@ namespace SwitchRCSConfig
                 usingConfig.WriteIniFile("first", "rate", loadedConfig.ReadIniFile("first", "rate", "0"));
                 usingConfig.WriteIniFile("second", "y", loadedConfig.ReadIniFile("second", "y", "0"));
                 usingConfig.WriteIniFile("second", "rate", loadedConfig.ReadIniFile("second", "rate", "0"));
+                usingConfig.WriteIniFile("GLOBALSETTINGS", "pressleftandright", loadedConfig.ReadIniFile("GLOBALSETTINGS", "pressleftandright", "1"));
             }
         }
 
