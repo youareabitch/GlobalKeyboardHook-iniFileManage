@@ -144,6 +144,21 @@ namespace SwitchRCSConfig
                 usedConfig.WriteIniFile("second", "y", 0);
                 usedConfig.WriteIniFile("second", "rate", loadedConfig.ReadIniFile("config", "rate2", "0"));
                 usedConfig.WriteIniFile("GLOBALSETTINGS", "pressleftandright", loadedConfig.ReadIniFile("config", "pressleftandright", "1"));
+
+                if (Convert.ToBoolean(loadedConfig.ReadIniFile("type", "forKali", "false")))
+                {
+                    usedConfig.WriteIniFile("first", "x", 0);
+                    usedConfig.WriteIniFile("second", "x", 0);
+                    usedConfig.WriteIniFile("first", "y", 0);
+                    usedConfig.WriteIniFile("second", "y", 0);
+                    usedConfig.WriteIniFile("first", "rate", 100);
+                    usedConfig.WriteIniFile("second", "rate", 100);
+                }
+                else
+                {
+                    usedConfig.WriteIniFile("first", "x", -1);
+                    usedConfig.WriteIniFile("second", "x", 1);
+                }
             }
             SwitchHeroConfig("Default");
         }
@@ -164,6 +179,8 @@ namespace SwitchRCSConfig
                 usingConfig.WriteIniFile("second", "y", loadedConfig.ReadIniFile("second", "y", "0"));
                 usingConfig.WriteIniFile("second", "rate", loadedConfig.ReadIniFile("second", "rate", "0"));
                 usingConfig.WriteIniFile("GLOBALSETTINGS", "pressleftandright", loadedConfig.ReadIniFile("GLOBALSETTINGS", "pressleftandright", "1"));
+                usingConfig.WriteIniFile("first", "x", loadedConfig.ReadIniFile("first", "x", "0"));
+                usingConfig.WriteIniFile("second", "x", loadedConfig.ReadIniFile("second", "x", "0"));
             }
         }
 
